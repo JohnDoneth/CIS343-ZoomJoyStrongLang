@@ -73,7 +73,17 @@ void rectangle(int x, int y, int w, int h){
 }
 
 void finish(){
-	SDL_Delay(5000);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
+
+	SDL_Event event;
+	
+	// Displays our generated picture until a quit event occurs.
+	for (;;){
+		SDL_PollEvent(&event);
+	  	if (event.type == SDL_QUIT) {
+			SDL_DestroyWindow(window);
+			SDL_Quit();
+			return;
+	  	}
+  	}
+	
 }
