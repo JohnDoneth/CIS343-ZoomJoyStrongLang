@@ -1,5 +1,5 @@
 # CIS343-ZoomJoyStrongLang
-Flex + Bison assignment for CIS 343
+Flex + Bison - Lexing and Parsing assignment for CIS 343
 
 
 
