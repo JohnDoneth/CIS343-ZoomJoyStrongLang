@@ -15,8 +15,7 @@ LINE                    return LINE;
 CIRCLE                  return CIRCLE;
 RECTANGLE               return RECTANGLE;
 SET_COLOR               return SET_COLOR; 
-[-]?[1-9]([0-9]*)?      return INT;
-[-]?([0-9]*[.])?[0-9]+  return FLOAT;
+[-]?[0-9]([0-9]*)?      { yylval=atoi(yytext); return INT; };
 \n|\t|[ ]               ;
 .                       { printf("Error! Invalid token '%s' on line %d\n", yytext, yylineno); }
  

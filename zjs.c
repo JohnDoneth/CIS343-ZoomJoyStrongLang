@@ -66,10 +66,10 @@ void rectangle(int x, int y, int w, int h){
 	rect.w = w;
 	rect.h = h;
 	SDL_SetRenderTarget(renderer, texture);
-        SDL_RenderDrawRect(renderer, &rect);
-        SDL_SetRenderTarget(renderer, NULL);
-        SDL_RenderCopy(renderer, texture, NULL, NULL);
-        SDL_RenderPresent(renderer);
+    SDL_RenderDrawRect(renderer, &rect);
+    SDL_SetRenderTarget(renderer, NULL);
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
 }
 
 void finish(){
