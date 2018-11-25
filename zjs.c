@@ -80,10 +80,17 @@ void finish(){
 	for (;;){
 		SDL_PollEvent(&event);
 	  	if (event.type == SDL_QUIT) {
-			SDL_DestroyWindow(window);
-			SDL_Quit();
-			return;
+			break;
 	  	}
+		else if (event.type == SDL_KEYDOWN) {
+			if (event.key.keysym.sym == SDLK_ESCAPE) {
+				break;
+			}
+		}
+
   	}
+
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 	
 }
