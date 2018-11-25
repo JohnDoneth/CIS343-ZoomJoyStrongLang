@@ -52,10 +52,10 @@ set_color: INT INT INT {
 
 point: INT INT {
 	if ($1 < 0 || $1 > WIDTH){
-		fprintf(stderr, "POINT x must be between 0-%d", WIDTH);
+		fprintf(stderr, "POINT x must be between 0-%d\n", WIDTH);
 	}
 	else if ($2 < 0 || $2 > HEIGHT){
-		fprintf(stderr, "POINT y must be between 0-%d", HEIGHT);
+		fprintf(stderr, "POINT y must be between 0-%d\n", HEIGHT);
 	}
 	else {
 		printf("POINT %d, %d\n", $1, $2);
@@ -65,16 +65,16 @@ point: INT INT {
 
 line: INT INT INT INT {
 	if ($1 < 0 || $1 > WIDTH){
-		fprintf(stderr, "LINE x1 must be between 0-%d", WIDTH);
+		fprintf(stderr, "LINE x1 must be between 0-%d\n", WIDTH);
 	}
 	else if ($2 < 0 || $2 > HEIGHT){
-		fprintf(stderr, "LINE y1 must be between 0-%d", HEIGHT);
+		fprintf(stderr, "LINE y1 must be between 0-%d\n", HEIGHT);
 	}
 	if ($3 < 0 || $3 > WIDTH){
-		fprintf(stderr, "LINE x2 must be between 0-%d", WIDTH);
+		fprintf(stderr, "LINE x2 must be between 0-%d\n", WIDTH);
 	}
 	else if ($4 < 0 || $4 > HEIGHT){
-		fprintf(stderr, "LINE y2 must be between 0-%d", HEIGHT);
+		fprintf(stderr, "LINE y2 must be between 0-%d\n", HEIGHT);
 	}
 	else {
 		printf("LINE %d, %d, %d, %d\n", $1, $2, $3, $4); 
@@ -84,13 +84,13 @@ line: INT INT INT INT {
 
 circle: INT INT INT {
 	if ($1 < 0 || $1 > WIDTH){
-		fprintf(stderr, "CIRCLE x must be between 0-%d", WIDTH);
+		fprintf(stderr, "CIRCLE x must be between 0-%d\n", WIDTH);
 	}
 	else if ($2 < 0 || $2 > HEIGHT){
-		fprintf(stderr, "CIRCLE y must be between 0-%d", HEIGHT);
+		fprintf(stderr, "CIRCLE y must be between 0-%d\n", HEIGHT);
 	}
 	else if ($3 < 0) {
-		fprintf(stderr, "CIRCLE radius must be positive");
+		fprintf(stderr, "CIRCLE radius must be positive\n");
 	}
 	else {
 		printf("CIRCLE %d, %d, %d\n", $1, $2, $3); 
@@ -100,27 +100,23 @@ circle: INT INT INT {
 
 rectangle: INT INT INT INT {
 	if ($1 < 0 || $1 > WIDTH){
-		fprintf(stderr, "RECTANGLE x must be between 0-%d", WIDTH);
+		fprintf(stderr, "RECTANGLE x must be between 0-%d\n", WIDTH);
 	}
 	else if ($2 < 0 || $2 > HEIGHT){
-		fprintf(stderr, "RECTANGLE y must be between 0-%d", HEIGHT);
+		fprintf(stderr, "RECTANGLE y must be between 0-%d\n", HEIGHT);
 	}
 	if ($3 < 0 || $3 > WIDTH - $1){
-		fprintf(stderr, "RECTANGLE width must be between 0-%d", WIDTH - $1);
+		fprintf(stderr, "RECTANGLE width must be between 0-%d\n", WIDTH - $1);
 	}
 	else if ($4 < 0 || $4 > HEIGHT - $2){
-		fprintf(stderr, "RECTANGLE height must be between 0-%d", HEIGHT - $2);
+		fprintf(stderr, "RECTANGLE height must be between 0-%d\n", HEIGHT - $2);
 	}
 	else {
 		printf("RECTANGLE %d, %d, %d, %d\n", $1, $2, $3, $4); 
 		rectangle($1, $2, $3, $4);
 	}
 };
-
-
 %%
-
-
 
 int main(int argc, char** argv){
 	setup();
